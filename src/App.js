@@ -1,25 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+/** @format */
+
+import "./App.css";
+import CardComponent from "./components/CardComponent";
+import HeroComponent from "./components/HeroComponent";
+import Navbar from "./components/Navbar";
+import datas from "./components/formData";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	console.log(datas);
+	const formdata = datas.map((data) => {
+		return <CardComponent key={data.id} data={data} />;
+	});
+	return (
+		<div className='app'>
+			<Navbar />
+			<HeroComponent />
+			<section className='flexx'>{formdata}</section>
+		</div>
+	);
 }
 
 export default App;
